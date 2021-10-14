@@ -258,7 +258,7 @@ int main()
                 {
                     cout << "  ";
                 }
-            }p-sune
+            }
             cout << endl;
         }
         break;
