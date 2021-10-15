@@ -1,4 +1,4 @@
-﻿#include <iostream>
+#include <iostream>
 
 using namespace std;
 
@@ -7,17 +7,18 @@ int main()
     setlocale(0, "");
 
     short figure, lenght, type, size1, size2;
-    char symbol;
-    char empty_space = ' ';
+    char symbol1, symbol2;
     bool isEmpty;
 
-    cout << "[+] \"Геометрические фигуры\"\n";
+    cout << "[+] \"Геометрические фигуры\"\n\n";
     cout << "[1] Линия\n";
     cout << "[2] Квадрат\n";
     cout << "[3] Прямоугольник\n";
     cout << "[4] Треугольник\n";
     cout << "[5] Крест\n";
-    cout << "[6] Квадратная рекурсия\n\n";
+    cout << "[6] Квадратная рекурсия\n";
+    cout << "[7] Шахматная доска\n";
+    cout << "[8] Решето\n\n";
 
     cout << "[+] Выберите фигуру: ";
     cin >> figure;
@@ -40,14 +41,14 @@ int main()
         cin >> lenght;
 
         cout << "\n[+]Выберите текстуру линии: ";
-        cin >> symbol;
+        cin >> symbol1;
 
         if (type == 1)
         {
             cout << "[+] Результат: ";
             while (lenght > 0)
             {
-                cout << symbol;
+                cout << symbol1;
                 lenght -= 1;
             }
             cout << endl;
@@ -57,7 +58,7 @@ int main()
             cout << "[+] Результат: \n";
             while (lenght > 0)
             {
-                cout << symbol << endl;
+                cout << symbol1 << endl;
                 lenght -= 1;
             }
         }
@@ -68,7 +69,7 @@ int main()
         cout << "[+] Выберите размер стороны квадрата: ";
         cin >> size1;
         cout << "\n[+] Выберите текстуру квадрата: ";
-        cin >> symbol;
+        cin >> symbol1;
         if (isEmpty == 0)
         {
             cout << "[+] Результат: \n";
@@ -76,7 +77,7 @@ int main()
             {
                 for (int j = 0; j < size1; j++)
                 {
-                    cout << symbol << " ";
+                    cout << symbol1 << " ";
                 }
                 cout << "\n";
             }
@@ -90,13 +91,13 @@ int main()
                 {
                     if (i == 0 || i == size1 - 1)
                     {
-                        cout << symbol << " ";
+                        cout << symbol1 << " ";
                     }
                     else
                     {
                         if (j == 0 || j == size1 - 1)
                         {
-                            cout << symbol << " ";
+                            cout << symbol1 << " ";
                         }
                         else
                         {
@@ -119,7 +120,7 @@ int main()
         cout << "[+] Выберите размер второй стороны прямоугольника: ";
         cin >> size2;
         cout << "\n[+] Выберите текстуру прямоугольника: ";
-        cin >> symbol;
+        cin >> symbol1;
 
         if (isEmpty == 0)
         {
@@ -128,7 +129,7 @@ int main()
             {
                 for (int j = 0; j < size1; j++)
                 {
-                    cout << symbol << " ";
+                    cout << symbol1 << " ";
                 }
                 cout << "\n";
             }
@@ -142,7 +143,7 @@ int main()
                 {
                     if (i == 0 || i == size2 - 1 || j == 0 || j == size1 - 1)
                     {
-                        cout << symbol << " ";
+                        cout << symbol1 << " ";
                     }
                     else
                     {
@@ -161,7 +162,7 @@ int main()
         cout << "[+] Выберите основание треугольника: ";
         cin >> size2;
         cout << "[+] Выберите текстуру треугольника: ";
-        cin >> symbol;
+        cin >> symbol1;
         if (isEmpty == 1)
         {
             if (size2 % 2 != 0)
@@ -172,7 +173,7 @@ int main()
                     {
                         if (j == size2 / 2 + i || j == size2 / 2 - i || i == size1 - 1)
                         {
-                            cout << symbol << " ";
+                            cout << symbol1 << " ";
                         }
                         else
                         {
@@ -197,7 +198,7 @@ int main()
                     {
                         if (j <= size2 / 2 + i && j >= size2 / 2 - i || i == size1 - 1)
                         {
-                            cout << symbol << " ";
+                            cout << symbol1 << " ";
                         }
                         else
                         {
@@ -218,7 +219,7 @@ int main()
         cout << "[+] Выберите размер креста: ";
         cin >> size1;
         cout << "\n[+] Выберите текстуру креста: ";
-        cin >> symbol;
+        cin >> symbol1;
 
         cout << "[+] Результат: \n";
         for (int i = 0; i < size1; i++)
@@ -227,7 +228,7 @@ int main()
             {
                 if (i == size1 / 2 || j == size1 / 2)
                 {
-                    cout << symbol << " ";
+                    cout << symbol1 << " ";
                 }
                 else
                 {
@@ -242,21 +243,72 @@ int main()
         cout << "[+] Выберите размер рекурсии: ";
         cin >> size1;
         cout << "\n[+] Выберите текстуру рекурсии: ";
-        cin >> symbol;
+        cin >> symbol1;
 
         cout << "\n[+] Результат: \n";
 
-        for (int i = 1; i <= size1; i++)
+        for (int i = 0; i <= size1; i++)
         {
-            for (int j = 1; j <= size1; j++)
+            for (int j = 0; j <= size1; j++)
             {
-                if (i == 1 || i == size1 || j == 1 || j == size1)
+                if ((min(min(i, size1 - i), min(j, size1 - j)) % 2) == 0)
                 {
-                    cout << symbol << " ";                              //Вывод основного квадрата
+                    cout << symbol1 << " ";                            
                 }
                 else
                 {
                     cout << "  ";
+                }
+            }
+            cout << endl;
+        }
+        break;
+
+    case 7:
+        cout << "[+] Выерите размер доски: ";
+        cin >> size1;
+        cout << "[+] Выберите первый знак: ";
+        cin >> symbol1;
+        cout << "[+] Выберите второй знак: ";
+        cin >> symbol2;
+        cout << "\n[+] Результат: \n";
+        cout << "";
+
+        for (int i = 0; i < size1; i++)
+        {
+            for (int j = 0; j < size1; j++)
+            {
+                if ((i % 2 == 0 && j % 2 == 0) || (i % 2 != 0 && j % 2 != 0))
+                {
+                    cout << symbol1 << " ";
+                }
+                else
+                {
+                    cout << symbol2 << " ";
+                }
+            }
+            cout << endl;
+        }
+        break;
+    case 8:
+        cout << "[+] Выерите размер решетки: ";
+        cin >> size1;
+        cout << "[+] Выберите знак: ";
+        cin >> symbol1;
+        cout << "\n[+] Результат: \n";
+        cout << "";
+
+        for (int i = 0; i < size1-1; i++)
+        {
+            for (int j = 0; j < size1-1; j++)
+            {
+                if (i%2 == 0 && j%2==0 && i < size1-1 && j < size1-1)
+                {
+                    cout << "  ";
+                }
+                else
+                {
+                    cout << symbol1 << " ";
                 }
             }
             cout << endl;
