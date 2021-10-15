@@ -2,14 +2,13 @@
 
 using namespace std;
 
-int main()
+
+short figure, lenght, type, size1, size2;
+char symbol1, symbol2;
+bool isEmpty;
+
+void menu()
 {
-    setlocale(0, "");
-
-    short figure, lenght, type, size1, size2;
-    char symbol1, symbol2;
-    bool isEmpty;
-
     cout << "[+] \"Геометрические фигуры\"\n\n";
     cout << "[1] Линия\n";
     cout << "[2] Квадрат\n";
@@ -18,12 +17,20 @@ int main()
     cout << "[5] Крест\n";
     cout << "[6] Квадратная рекурсия\n";
     cout << "[7] Шахматная доска\n";
-    cout << "[8] Решето\n\n";
+    cout << "[8] Решето\n";
+    cout << "[9] Лабиринт\n\n";
 
     cout << "[+] Выберите фигуру: ";
     cin >> figure;
 
     system("cls");
+}
+
+int main()
+{
+    setlocale(0, "");
+
+    menu();
 
     switch (figure)
     {
@@ -253,7 +260,7 @@ int main()
             {
                 if ((min(min(i, size1 - i), min(j, size1 - j)) % 2) == 0)
                 {
-                    cout << symbol1 << " ";                            
+                    cout << symbol1 << " ";
                 }
                 else
                 {
@@ -298,11 +305,11 @@ int main()
         cout << "\n[+] Результат: \n";
         cout << "";
 
-        for (int i = 0; i < size1-1; i++)
+        for (int i = 0; i < size1 - 1; i++)
         {
-            for (int j = 0; j < size1-1; j++)
+            for (int j = 0; j < size1 - 1; j++)
             {
-                if (i%2 == 0 && j%2==0 && i < size1-1 && j < size1-1)
+                if (i % 2 == 0 && j % 2 == 0 && i < size1 - 1 && j < size1 - 1)
                 {
                     cout << "  ";
                 }
@@ -314,10 +321,26 @@ int main()
             cout << endl;
         }
         break;
+    case 9:
+        cout << "Выберите размер лабиринта: ";
+        cin >> size1;
+        cout << "Выберите текстуру лабиринта: ";
+        cin >> symbol1;
 
+        char a[][];
+
+        for (int i = 1; i < size1; i++)
+        {
+            for (int j = 1; j < size1; j++)
+            {
+                
+            }
+            cout << endl;
+        }
+        break;
     default:
         cout << "Такой фигуры пока не существует :с\n";
     }
-    system("pause");
+    system("pause"); menu();
     return 0;
 }
