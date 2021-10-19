@@ -17,8 +17,7 @@ void menu()
     cout << "[5] Крест\n";
     cout << "[6] Квадратная рекурсия\n";
     cout << "[7] Шахматная доска\n";
-    cout << "[8] Решето\n";
-    cout << "[9] Лабиринт\n\n";
+    cout << "[8] Решето\n\n";
 
     cout << "[+] Выберите фигуру: ";
     cin >> figure;
@@ -227,23 +226,55 @@ int main()
         cin >> size1;
         cout << "\n[+] Выберите текстуру креста: ";
         cin >> symbol1;
+        cout << "\n[+] Тип креста: ";
+        cout << "\n\n[1] Вертикальный крест";
+        cout << "\n[2] Крест под углом";
+        cout << "\n\n[+] Выберите тип креста: ";
+        cin >> type;
 
-        cout << "[+] Результат: \n";
-        for (int i = 0; i < size1; i++)
+        if (type == 1)
         {
-            for (int j = 0; j < size1; j++)
+            cout << "[+] Результат: \n";
+            for (int i = 0; i < size1; i++)
             {
-                if (i == size1 / 2 || j == size1 / 2)
+                for (int j = 0; j < size1; j++)
                 {
-                    cout << symbol1 << " ";
-                }
-                else
-                {
-                    cout << "  ";
-                }
+                    if (i == size1 / 2 || j == size1 / 2)
+                    {
+                        cout << symbol1 << " ";
+                    }
+                    else
+                    {
+                        cout << "  ";
+                    }
 
+                }
+                cout << "\n";
             }
-            cout << "\n";
+        }
+        else if (type == 2)
+        {
+            cout << "[+] Результат: \n";
+            for (int i = 0; i < size1; i++)
+            {
+
+                for (int j = 0; j < size1; j++)
+                {
+                    if (i == j)
+                    {
+                        cout << symbol1 << " ";
+                    }
+                    else if (i + j == 10)
+                    {
+                        cout << symbol1 << " ";
+                    }
+                    else
+                    {
+                        cout << "  ";
+                    }
+                }
+                cout << "\n";
+            }
         }
         break;
     case 6:
@@ -321,26 +352,10 @@ int main()
             cout << endl;
         }
         break;
-    case 9:
-        cout << "Выберите размер лабиринта: ";
-        cin >> size1;
-        cout << "Выберите текстуру лабиринта: ";
-        cin >> symbol1;
-
-        char a[][];
-
-        for (int i = 1; i < size1; i++)
-        {
-            for (int j = 1; j < size1; j++)
-            {
-                
-            }
-            cout << endl;
-        }
-        break;
     default:
         cout << "Такой фигуры пока не существует :с\n";
     }
-    system("pause"); menu();
+    system("pause"); 
+    menu();
     return 0;
 }
