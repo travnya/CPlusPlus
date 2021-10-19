@@ -18,43 +18,50 @@ int main()
         cout << "[" << i + 1 << "] - " << n[i] << endl;
     }
     cout << endl;
+    
     cout << "Short" << endl;
     for (int i = 0; i < 10; i++)
     {
         cout << "[" << i + 1 << "] - " << s[i] << endl;
     }
     cout << endl;
+    
     cout << "Long" << endl;
     for (int i = 0; i < 10; i++)
     {
         cout << "[" << i + 1 << "] - " << l[i] << endl;
     }
     cout << endl;
+    
     cout << "Char" << endl;
     for (int i = 0; i < 10; i++)
     {
         cout << "[" << i + 1 << "] - " << c[i] << endl;
     }
     cout << endl;
+    
     cout << "Boolean" << endl;
     for (int i = 0; i < 10; i++)
     {
         cout << "[" << i + 1 << "] - " << b[i] << endl;
     }
     cout << endl;
+    
     cout << "Double" << endl;
     for (int i = 0; i < 10; i++)
     {
         cout << "[" << i + 1 << "] - " << d[i] << endl;
     }
     cout << endl;
+    
     cout << "Float" << endl;
     for (int i = 0; i < 10; i++)
     {
         cout << "[" << i + 1 << "] - " << f[i] << endl;
     }
     cout << endl;
-    cout << "Textovie" << endl;
+    
+    cout << "String" << endl;
     for (int i = 0; i < 10; i++)
     {
         cout << "[" << i + 1 << "] - " << str[i] << endl;
