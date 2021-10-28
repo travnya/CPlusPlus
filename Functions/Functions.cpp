@@ -41,27 +41,27 @@ void changeFontColor()
 
 void getSizeInt() 
 {
-    cout << "Размер типа данных INT = 4 байта\n";
+    cout << "Размер типа данных INT = " << sizeof(int) << endl;
 }
 
 void getSizeChar() 
 {
-    cout << "Размер типа данных CHAR = 1 байт\n";
+    cout << "Размер типа данных CHAR = " << sizeof(char) << endl;
 }
 
 void getSizeDouble() 
 {
-    cout << "Размер типа данных DOUBLE = 8 байт\n";
+    cout << "Размер типа данных DOUBLE = " << sizeof(double) << endl;
 }
 
 void getSizeFloat() 
 {
-    cout << "Размер типа данных FLOAT = 4 байта\n";
+    cout << "Размер типа данных FLOAT = " << sizeof(float) << endl;
 }
 
 void getSizeBool() 
 {
-    cout << "Размер типа данных BOOL = 1 байт\n";
+    cout << "Размер типа данных BOOL = " << sizeof(bool) << endl;
 }
 
 void getMessage()
