@@ -108,7 +108,7 @@ void printSquare(char)
 }
 
 
-void main()
+int main()
 {
     setlocale(0, "");
 
@@ -176,4 +176,5 @@ void main()
         clearConsole();
         exit(777);
     }
+    return 777;
 }
