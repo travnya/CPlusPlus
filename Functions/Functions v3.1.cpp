@@ -1,8 +1,8 @@
-﻿#include <iostream>
+#include <iostream>
 using namespace std;
 
 string backgroundColor, foregroundColor, color;
-short choise = 0;
+short choise;
 char symbol;
 
 void menu()
@@ -22,7 +22,6 @@ void menu()
     cout << "[9] Вывод квадрата 5х5\n\n";
     cout << "[777] Выход из программы\n\n";
     cout << "===========================================================\n\n";
-
 
     cout << "Выбери что-то одно: ";
     cin >> choise;
@@ -110,9 +109,12 @@ void printSquare(char)
 
 int main()
 {
+
     setlocale(0, "");
 
     menu();
+
+
 
     if (choise != 777)
     {
@@ -165,7 +167,7 @@ int main()
             clearConsole();
             menu();
         default:
-            cout << "Такой функционал пока ещё не раелизован :с\n";
+            cout << "Такой функционал пока ещё не реализован :с\n";
             system("pause");
             clearConsole();
             menu();
