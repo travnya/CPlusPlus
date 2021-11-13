@@ -13,6 +13,7 @@ void settings();
 void clear();
 void playerColor();
 void startGame();
+bool winConditions();
 int fieldSize();
 
 
@@ -131,18 +132,18 @@ void clear()
 }
 
 void playerColor() {
-	cout << "Выберите цвет для X и 0\n\n";
-	cout << " [1] Красный\n ";
-	cout << "[2] Зеленый\n ";
-	cout << "[3] Желтый\n ";
-	cout << "[4] Синий\n ";
-	cout << "[5] Пурпурный\n ";
-	cout << "[6] Гейский\n ";
-	cout << "[7] Дефолтный\n ";
+	cout << "Выберите цвет для X и O\n\n";
+	cout << "[1] Красный\n";
+	cout << "[2] Зеленый\n";
+	cout << "[3] Желтый\n";
+	cout << "[4] Синий\n";
+	cout << "[5] Пурпурный\n";
+	cout << "[6] Гейский\n";
+	cout << "[7] Дефолтный\n";
 	cout << "Выберите цвет для X: ";
 	cin >> xColor;
 
-	while (xColor < 1 || xColor >7)
+	while (xColor < 1 || xColor > 7)
 	{
 		cout << "\n Ошибка! Такого цвета не существует! Введите код заного: ";
 		cin >> xColor;
@@ -151,7 +152,7 @@ void playerColor() {
 	cout << "Выберите цвет для 0: ";
 	cin >> oColor;
 
-	while (oColor < 1 || oColor >7)
+	while (oColor < 1 || oColor > 7)
 	{
 		cout << "\n Ошибка! Такого цвета не существует! Введите код заного: ";
 		cin >> oColor;
@@ -221,6 +222,7 @@ void play()
 
 	while (gameRun == true)
 	{
+
 		if (gridSize == 1)
 		{
 			if (firstMove == 1)
@@ -779,6 +781,111 @@ void play()
 
 			}
 		}
+
+		if (gridSize == 1) 
+		{
+			if
+				((gameField[0][0] == 'X' && gameField[0][1] == 'X' && gameField[0][2] == 'X') ||
+				(gameField[1][0] == 'X' && gameField[1][1] == 'X' && gameField[1][2] == 'X') ||
+				(gameField[2][0] == 'X' && gameField[2][1] == 'X' && gameField[2][2] == 'X') ||
+				(gameField[0][0] == 'X' && gameField[1][1] == 'X' && gameField[2][2] == 'X') ||
+				(gameField[0][2] == 'X' && gameField[1][1] == 'X' && gameField[2][0] == 'X') ||
+				(gameField[0][0] == 'X' && gameField[1][0] == 'X' && gameField[2][0] == 'X') ||
+				(gameField[0][1] == 'X' && gameField[1][1] == 'X' && gameField[2][1] == 'X') ||
+				(gameField[0][2] == 'X' && gameField[1][2] == 'X' && gameField[2][2] == 'X'))
+			{
+				gameRun = false;
+				cout << "Победил крестик! Поздравляю! \n\n";
+			}
+
+			else if
+				((gameField[0][0] == 'O' && gameField[0][1] == 'O' && gameField[0][2] == 'O') ||
+				(gameField[1][0] == 'O' && gameField[1][1] == 'O' && gameField[1][2] == 'O') ||
+				(gameField[2][0] == 'O' && gameField[2][1] == 'O' && gameField[2][2] == 'O') ||
+				(gameField[0][0] == 'O' && gameField[1][1] == 'O' && gameField[2][2] == 'O') ||
+				(gameField[0][2] == 'O' && gameField[1][1] == 'O' && gameField[2][0] == 'O') ||
+				(gameField[0][0] == 'O' && gameField[1][0] == 'O' && gameField[2][0] == 'O') ||
+				(gameField[0][1] == 'O' && gameField[1][1] == 'O' && gameField[2][1] == 'O') ||
+				(gameField[0][2] == 'O' && gameField[1][2] == 'O' && gameField[2][2] == 'O'))
+			{
+				gameRun = false;
+				cout << "Победил нолик! Поздравляю! \n\n";
+			}
+		}
+		else if (gridSize == 2)
+		{
+			if
+				((gameField[0][0] == 'X' && gameField[0][1] == 'X' && gameField[0][2] == 'X' && gameField[0][3] == 'X') ||
+				(gameField[1][0] == 'X' && gameField[1][1] == 'X' && gameField[1][2] == 'X' && gameField[1][3] == 'X') ||
+				(gameField[2][0] == 'X' && gameField[2][1] == 'X' && gameField[2][2] == 'X' && gameField[2][3] == 'X') ||
+				(gameField[3][0] == 'X' && gameField[3][1] == 'X' && gameField[3][2] == 'X' && gameField[3][3] == 'X') ||
+				(gameField[0][0] == 'X' && gameField[1][0] == 'X' && gameField[2][0] == 'X' && gameField[3][0] == 'X') ||
+				(gameField[0][1] == 'X' && gameField[1][1] == 'X' && gameField[2][1] == 'X' && gameField[3][1] == 'X') ||
+				(gameField[0][2] == 'X' && gameField[1][3] == 'X' && gameField[2][3] == 'X' && gameField[3][3] == 'X') ||
+				(gameField[0][0] == 'X' && gameField[1][1] == 'X' && gameField[2][2] == 'X' && gameField[3][3] == 'X') ||
+				(gameField[0][3] == 'X' && gameField[1][2] == 'X' && gameField[2][1] == 'X' && gameField[3][0] == 'X'))
+			{
+				gameRun = false;
+				cout << "Победил крестик! Поздравляю! \n\n";
+			}
+
+			else if ((gameField[0][0] == 'O' && gameField[0][1] == 'O' && gameField[0][2] == 'O' && gameField[0][3] == 'O') ||
+				(gameField[1][0] == 'O' && gameField[1][1] == 'O' && gameField[1][2] == 'O' && gameField[1][3] == 'O') ||
+				(gameField[2][0] == 'O' && gameField[2][1] == 'O' && gameField[2][2] == 'O' && gameField[2][3] == 'O') ||
+				(gameField[3][0] == 'O' && gameField[3][1] == 'O' && gameField[3][2] == 'O' && gameField[3][3] == 'O') ||
+				(gameField[0][0] == 'O' && gameField[1][0] == 'O' && gameField[2][0] == 'O' && gameField[3][0] == 'O') ||
+				(gameField[0][1] == 'O' && gameField[1][1] == 'O' && gameField[2][1] == 'O' && gameField[3][1] == 'O') ||
+				(gameField[0][2] == 'O' && gameField[1][2] == 'O' && gameField[2][2] == 'O' && gameField[3][2] == 'O') ||
+				(gameField[0][3] == 'O' && gameField[1][3] == 'O' && gameField[2][3] == 'O' && gameField[3][3] == 'O') ||
+				(gameField[0][0] == 'O' && gameField[1][1] == 'O' && gameField[2][2] == 'O' && gameField[3][3] == 'O') ||
+				(gameField[0][3] == 'O' && gameField[1][2] == 'O' && gameField[2][1] == 'O' && gameField[3][0] == 'O'))
+			{
+				gameRun = false;
+				cout << "Победил нолик! Поздравляю! \n\n";
+
+			}
+
+		}
+		else if (gridSize == 3)
+		{
+			if
+				((gameField[0][0] == 'X' && gameField[0][1] == 'X' && gameField[0][2] == 'X' && gameField[0][3] == 'X' && gameField[0][4] == 'X') ||
+				(gameField[1][0] == 'X' && gameField[1][1] == 'X' && gameField[1][2] == 'X' && gameField[1][3] == 'X' && gameField[1][4] == 'X') ||
+				(gameField[2][0] == 'X' && gameField[2][1] == 'X' && gameField[2][2] == 'X' && gameField[2][3] == 'X' && gameField[2][4] == 'X') ||
+				(gameField[3][0] == 'X' && gameField[3][1] == 'X' && gameField[3][2] == 'X' && gameField[3][3] == 'X' && gameField[3][4] == 'X') ||
+				(gameField[4][0] == 'X' && gameField[4][1] == 'X' && gameField[4][2] == 'X' && gameField[4][3] == 'X' && gameField[4][4] == 'X') ||
+				(gameField[0][0] == 'X' && gameField[1][0] == 'X' && gameField[2][0] == 'X' && gameField[3][0] == 'X' && gameField[4][0] == 'X') ||
+				(gameField[0][1] == 'X' && gameField[1][1] == 'X' && gameField[2][1] == 'X' && gameField[3][1] == 'X' && gameField[4][1] == 'X') ||
+				(gameField[0][2] == 'X' && gameField[1][2] == 'X' && gameField[2][2] == 'X' && gameField[3][2] == 'X' && gameField[4][2] == 'X') ||
+				(gameField[0][3] == 'X' && gameField[1][3] == 'X' && gameField[2][3] == 'X' && gameField[3][3] == 'X' && gameField[4][3] == 'X') ||
+				(gameField[0][4] == 'X' && gameField[1][4] == 'X' && gameField[2][4] == 'X' && gameField[3][4] == 'X' && gameField[4][4] == 'X') ||
+				(gameField[0][0] == 'X' && gameField[1][1] == 'X' && gameField[2][2] == 'X' && gameField[3][3] == 'X' && gameField[4][4] == 'X') ||
+				(gameField[0][4] == 'X' && gameField[1][3] == 'X' && gameField[2][2] == 'X' && gameField[3][1] == 'X' && gameField[4][0] == 'X'))
+			{
+				gameRun = false;
+				cout << "Победил крестик! Поздравляю! \n\n";
+			}
+
+			else if
+				((gameField[0][0] == 'O' && gameField[0][1] == 'O' && gameField[0][2] == 'O' && gameField[0][3] == 'O' && gameField[0][4] == 'O') ||
+				(gameField[1][0] == 'O' && gameField[1][1] == 'O' && gameField[1][2] == 'O' && gameField[1][3] == 'O' && gameField[1][4] == 'O') ||
+				(gameField[2][0] == 'O' && gameField[2][1] == 'O' && gameField[2][2] == 'O' && gameField[2][3] == 'O' && gameField[2][4] == 'O') ||
+				(gameField[3][0] == 'O' && gameField[3][1] == 'O' && gameField[3][2] == 'O' && gameField[3][3] == 'O' && gameField[3][4] == 'O') ||
+				(gameField[4][0] == 'O' && gameField[4][1] == 'O' && gameField[4][2] == 'O' && gameField[4][3] == 'O' && gameField[4][4] == 'O') ||
+				(gameField[0][0] == 'O' && gameField[1][0] == 'O' && gameField[2][0] == 'O' && gameField[3][0] == 'O' && gameField[4][0] == 'O') ||
+				(gameField[0][1] == 'O' && gameField[1][1] == 'O' && gameField[2][1] == 'O' && gameField[3][1] == 'O' && gameField[4][1] == 'O') ||
+				(gameField[0][2] == 'O' && gameField[1][2] == 'O' && gameField[2][2] == 'O' && gameField[3][2] == 'O' && gameField[4][2] == 'O') ||
+				(gameField[0][3] == 'O' && gameField[1][3] == 'O' && gameField[2][3] == 'O' && gameField[3][3] == 'O' && gameField[4][3] == 'O') ||
+				(gameField[0][4] == 'O' && gameField[1][4] == 'O' && gameField[2][4] == 'O' && gameField[3][4] == 'O' && gameField[4][4] == 'O') ||
+				(gameField[0][0] == 'O' && gameField[1][1] == 'O' && gameField[2][2] == 'O' && gameField[3][3] == 'O' && gameField[4][4] == 'O') ||
+				(gameField[0][4] == 'O' && gameField[1][3] == 'O' && gameField[2][2] == 'O' && gameField[3][1] == 'O' && gameField[4][0] == 'O'))
+			{
+				gameRun = false;
+				cout << "Победил нолик! Поздравляю! \n\n";
+			}
+		}
+
+		
 	}
 }
 
