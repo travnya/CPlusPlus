@@ -17,8 +17,6 @@ void startGame();
 bool winConditions();
 int fieldSize();
 
-// cout << colorBlue + "chlen" + colorReset << "pizda"<< endl;
-
 // Страница главного меню
 void menu()
 {
@@ -185,10 +183,6 @@ void playerColor() {
 	default:
 		break;
 	}
-
-
-
-
 
 
 	while (xColor < 1 || xColor > 7)
