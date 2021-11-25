@@ -264,7 +264,7 @@ int main()
                     {
                         cout << symbol1 << " ";
                     }
-                    else if (i + j == 10)
+                    else if (i + j == size1)
                     {
                         cout << symbol1 << " ";
                     }
